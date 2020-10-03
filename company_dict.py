@@ -1,5 +1,4 @@
-company_dict =
-{
+company_dictionary = {
     'IBM': 'IBM',
     'SAP': 'SAP',
     'Alphabet': 'GOOG',
@@ -23,5 +22,6 @@ company_dict =
     'Caterpillar': 'CAT'
 }
 
-def return_company_dict():
-    return company_dict
+
+def return_company_dictionary():
+    return company_dictionary

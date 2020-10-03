@@ -1,5 +1,6 @@
 import requests
 import pprint
+import json
 
 api_key = "EV1V34XV7I79WDYJ"
 
@@ -16,8 +17,12 @@ def time_series_request_adjusted(symbol):
         "apikey": api_key,
     }
     response = requests.get(API_URL, data)
-    pp = pprint.PrettyPrinter(indent=4)
-    pp.pprint(response.json())
+    json_data = json.loads(response.text)
+    return json_data
+    #print(type(json_data))
+    #pp = pprint.PrettyPrinter(indent=4)
+    #pp.pprint(response.json())
 
 
-time_series_request_adjusted("GOOG")
+if __name__ == '__main__':
+    time_series_request_adjusted("GOOG")
