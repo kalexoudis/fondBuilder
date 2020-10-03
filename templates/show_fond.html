@@ -2,40 +2,29 @@
 
 {% block content %}
     <div class="jumbotron">
-        <h1 class="display-4">Hello Finance</h1>
+        <h1 class="display-4">Your Fond, amazing work!!!</h1>
     </div>
-    <div>
-        <form action="submit_selection" method="post" class="reveal-content">
-            <!-- Choose Stocks & weighting -->
-            {% for item in range(5) %}
-                <label>Stock {{ item }}:</label>
-                <div class="row">
-                    <div class="col-md-3 form-group">
-                        <input name="percentage{{ item }}" type="number" class="form-control" id="percentage{{ item }}" placeholder="percentage">
-                    </div>
-                    <div class="col-md-8">
-                        <div class="form-group">
-                            <input name="asset{{ item }}" type="text" class="form-control" id="asset{{ item }}" placeholder="asset">
-                        </div>
-                    </div>
-                </div>
-            {% endfor %}
-            <button type="submit" class="btn btn-default btn-lg d-flex justify-content-end">Send</button>
-        </form>
-    </div>
+
 
 
     <!--Chart-->
     <canvas id="myChart" width="300" height="300"></canvas>
     <script>
+        var x_data = {{ x_data }}
+        var y_data = {{ y_data }}
+        console.log(x_data)
         var ctx = document.getElementById('myChart');
         var myChart = new Chart(ctx, {
             type: 'line',
             data: {
-                labels: {descriptive_data}['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+                labels: [{% for item in x_data %}
+                            "{{item}}",
+                        {% endfor %}],
                 datasets: [{
                     label: 'relative fond performance',
-                    data: {numeric_data}[12, 19, 3, 5, 2, 3],
+                    data: [{% for item in y_data %}
+                              {{item}},
+                            {% endfor %}],
                     backgroundColor: [
                         'rgba(255, 99, 132, 0.2)',
                         'rgba(54, 162, 235, 0.2)',

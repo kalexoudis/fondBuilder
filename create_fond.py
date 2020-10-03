@@ -37,8 +37,10 @@ def norm_fond(data_points, data):
 
     # pick the latest values of each asset
     latest_values = []
+    assets = []
     for asset in data:
         asset_symbol = asset[0]
+        assets.append(asset_symbol)
         latest_values.append((asset_symbol, data_points[asset_symbol][0][1], asset[1]))
 
     # Creating a list of tuples (percentage from given portfolio, stock_price)
@@ -59,7 +61,17 @@ def norm_fond(data_points, data):
             normalized_data_point = factor * float(data_point[1])
             normalized_data_points[asset_symbol].append((data_point[0], normalized_data_point))
 
-    return normalized_data_points
+    asset = assets[0]
+    normalized_data = []
+    i = 0
+    for _ in normalized_data_points[asset]:
+        sum = 0
+        for asset in assets:
+            sum += normalized_data_points[asset][i][1]
+        normalized_data.append((normalized_data_points[asset][i][0], sum))
+        i += 1
+
+    return normalized_data
 
 
 if __name__ == '__main__':
