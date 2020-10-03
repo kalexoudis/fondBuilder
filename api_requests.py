@@ -2,7 +2,7 @@ import requests
 import pprint
 import json
 
-api_key = "EV1V34XV7I79WDYJ"
+api_key = "TREKF7IPFSYM0BGB"
 
 API_URL = "https://www.alphavantage.co/query"
 
