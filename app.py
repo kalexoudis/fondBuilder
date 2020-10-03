@@ -26,7 +26,7 @@ def y_numbers(normalized_data):
     y_list = []
     for tupel in normalized_data:
         y_list.append(tupel[1])
-        y_list.reverse()
+    y_list.reverse()
     return y_list
 
 
@@ -61,6 +61,7 @@ def submit_selection():
         # print(tupellist)
         # y_data = [0, 10, 5, 2, 20, 30, 45]
         # x_data = ["January", "February", "March", "April", "May", "June", "July"]
+        print(y_data)
         return render_template('show_fond.html', x_data=x_data, y_data=y_data)
 
     else:
