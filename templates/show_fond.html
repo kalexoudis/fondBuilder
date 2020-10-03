@@ -10,9 +10,6 @@
     <!--Chart-->
     <canvas id="myChart" width="300" height="300"></canvas>
     <script>
-        var x_data = {{ x_data }}
-        var y_data = {{ y_data }}
-        console.log(x_data)
         var ctx = document.getElementById('myChart');
         var myChart = new Chart(ctx, {
             type: 'line',

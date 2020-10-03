@@ -25,7 +25,7 @@ def create_tupellist_from_dict(data):
 def y_numbers(normalized_data):
     y_list = []
     for tupel in normalized_data:
-        y_list.append(round(tupel[1]))
+        y_list.append(tupel[1])
         y_list.reverse()
     return y_list
 
@@ -37,6 +37,7 @@ def x_numbers(normalized_data):
     for i in range(len(x_data)):
         if i % 10 != 0:
             x_data[i] = ""
+    x_data.reverse()
     return x_data
 
 
@@ -52,13 +53,14 @@ def submit_selection():
         tupellist = create_tupellist_from_dict(data)
         fond_data_points = create_fond.build_fond(tupellist)
         normalized_data = create_fond.norm_fond(fond_data_points, tupellist)
-        # x_data = x_numbers(normalized_data)
-        # y_data = y_numbers(normalized_data)
+        print(normalized_data)
+        x_data = x_numbers(normalized_data)
+        y_data = y_numbers(normalized_data)
         # pp = pprint.PrettyPrinter(indent=4)
         # pp.pprint(normalized_data)
         # print(tupellist)
-        y_data = [0, 10, 5, 2, 20, 30, 45]
-        x_data = ["January", "February", "March", "April", "May", "June", "July"]
+        # y_data = [0, 10, 5, 2, 20, 30, 45]
+        # x_data = ["January", "February", "March", "April", "May", "June", "July"]
         return render_template('show_fond.html', x_data=x_data, y_data=y_data)
 
     else:
