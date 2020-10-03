@@ -12,7 +12,6 @@ company_dictionary = {
     'Allianz': 'ALV',
     'Siemens': 'SIE',
     'BASF': 'BAS',
-    'Daimler': 'DAI',
     'Covestro': '1COV',
     'Visa': 'V',
     'Mastercard': 'MA',
