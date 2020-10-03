@@ -2,7 +2,7 @@ import requests
 import pprint
 import json
 
-api_key = "EV1V34XV7I79WDYJ"
+api_key = "9FVR9Z6JYG1DM9MI"
 
 API_URL = "https://www.alphavantage.co/query"
 
@@ -18,10 +18,10 @@ def time_series_request_adjusted(symbol):
     }
     response = requests.get(API_URL, data)
     json_data = json.loads(response.text)
-    return json_data
+    #return json_data
     #print(type(json_data))
-    #pp = pprint.PrettyPrinter(indent=4)
-    #pp.pprint(response.json())
+    pp = pprint.PrettyPrinter(indent=4)
+    pp.pprint(json_data)
 
 
 if __name__ == '__main__':
